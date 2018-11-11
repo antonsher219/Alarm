@@ -76,8 +76,8 @@ footer {
 }
 
 #btn-week:hover, #btn-month:hover {
-    color: rgba(255, 255, 255, 0.76);
-    transition: 0.25s;
+    color: rgba(31, 8, 8, 0.76);
+    transition: 0.15s;
     cursor: pointer;
 }
 
@@ -98,56 +98,16 @@ footer {
     margin: 2px;
 }
 
-.day {
-    background-color: rgba(63, 130, 192, 0.171);
-    padding: 0;
-    margin: 2px;
-    color: rgba(12, 41, 68, 0.835);
-    border-radius: 2px;
-}
-
-.day:hover {
-    background-color: rgba(63, 130, 192, 0.288);
-    transition: 0.25s;
-    cursor: pointer;
-}
-
-.next {
-    background-color: rgb(227, 247, 255);
-}
-
-.active {
-    border: orange solid 3px;
-    margin: -1px;
-}
-
 .time {
     margin-left: 20px;
     padding: 0px;
     font-size: 40px;
-    color: #3189d4;
+    color: #53afff;
     text-shadow: 0px 0px 0px rgba(17, 34, 51, 0.192);
 }
 
-.selected-time {
-    margin-left: -10px;
-    padding: 0px;
-    font-size: 21px;
-    color: rgba(22, 61, 97, 0.63);
-    text-shadow: 0px 0px 0px rgba(17, 34, 51, 0.637);
-    text-align: center;
-}
-
-.control {
-    background-color: rgba(63, 130, 192, 0.431);
-}
-
-.control:hover {
-    background-color: rgba(63, 130, 192, 0.342);
-}
-
 .row.align-items-center {
-    background-color: #6c757d;
+    background-color: #727980;
 }
 
 .nav-item {
