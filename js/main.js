@@ -60,10 +60,27 @@ function click() {
             else
             {
                 this.style.color = 'white';
-                this.style.background = 'gray';
+                this.style.background = '#85888b';
+            }
+
+            document.getElementById('work').checked = false;
+            document.getElementById('weekend').checked = false;
+
+            if (document.getElementById('day1').style.color == 'white' &&
+                document.getElementById('day2').style.color == 'white' &&
+                document.getElementById('day3').style.color == 'white' &&
+                document.getElementById('day4').style.color == 'white' &&
+                document.getElementById('day5').style.color == 'white'){
+                document.getElementById('work').checked = true;
+            }
+
+            if (document.getElementById('day6').style.color == 'white' &&
+                document.getElementById('day7').style.color == 'white') {
+                document.getElementById('weekend').checked = true;
             }
         }
     }
+
 
     document.getElementById('checkbox1').onclick = function() {
         if(document.getElementById('checkbox1').checked == false)
@@ -85,7 +102,36 @@ function click() {
             document.getElementById('1').setAttribute('akt', true)
             if (document.getElementById('checkloop').checked)
                 document.getElementById('mnth').style.display = 'block'
+        }  
+    }
+
+    document.getElementById('work').onclick = function() {
+        if(document.getElementById('work').checked == false) {
+            for(i = 1; i < 6; i++){
+                document.getElementById('day' + i).style.color = '#4d5358';
+                document.getElementById('day' + i).style.background = 'white';
+            }
         }
-            
+        else {
+            for(i = 1; i < 6; i++){
+                document.getElementById('day' + i).style.color = 'white';
+                document.getElementById('day' + i).style.background = '#85888b';
+            }
+        }
+    }
+
+    document.getElementById('weekend').onclick = function() {
+        if(document.getElementById('weekend').checked == false) {
+            for(i = 6; i < 8; i++){
+                document.getElementById('day' + i).style.color = '#4d5358';
+                document.getElementById('day' + i).style.background = 'white';
+            }
+        }
+        else {
+            for(i = 6; i < 8; i++){
+                document.getElementById('day' + i).style.color = 'white';
+                document.getElementById('day' + i).style.background = '#85888b';
+            }
+        }
     }
 }

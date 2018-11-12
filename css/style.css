@@ -19,10 +19,10 @@ span {
 hr {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 0px !important;
+    margin-top: 10px !important;
     margin-bottom: 10px !important;
     border: none !important;
-    background-color: #4a5056;
+    background-color: #40454b;
     color: red; 
     height: 2px !important;
     width: 80%;
@@ -82,7 +82,7 @@ footer {
 }
 
 .navbar {
-    background-color: #4a5056;
+    background-color: #40454b;
     margin-left: -0.2% !important;
     margin-right: -0.2% !important;
     margin-bottom: 0% !important;
@@ -96,6 +96,7 @@ footer {
     color: #4d5358;
     border-radius: 2px;
     margin: 2px;
+    transition: 0.2s;
 }
 
 .time {
@@ -107,14 +108,40 @@ footer {
 }
 
 .row.align-items-center {
-    background-color: #727980;
+    background-color: #60676d;
 }
 
 .nav-item {
     color: rgba(255, 255, 255, 0.76);
 }
 
+.checkdays {
+
+    margin-bottom: 5px;
+}
 #checkloop {
     transform:scale(1.3);
     opacity:0.9;
+}
+
+#delete {
+    color: #ff5151;
+    font-size: 20px;
+    margin-top: 5px; 
+    margin-bottom: 10px; 
+}
+
+#check, #description {
+    color: #e0e0e0;
+    font-size: 20px;
+    margin: 4px
+}
+
+#worklabel, #weekendlabel {
+    color: #e0e0e0;
+}
+
+#mnth {
+    margin-top: 5px;
+    margin-bottom: 10px;
 }

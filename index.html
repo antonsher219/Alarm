@@ -73,31 +73,37 @@
 
 
 
-            <div id='check' class='col-12' style='font-size: 20px; margin: 4px'>
+            <div id='check' class='col-12'>
                 <input type='checkbox' name='checkloop' id='checkloop' class='col-2'>
-                <label id='checklabel'for='checkloop'>Repeat</label>
+                <label id='checklabel'for='checkloop'>Повтор</label>
             </div>
 
             <div id='mnth' class='container w-75' style='display: none;'>
+                <div class='row checkdays'>
+                    <input type="checkbox" name='work' id='work' class="col-2">
+                    <label id='worklabel'for='work'>Рабочие дни</label>
+                    <input type="checkbox" name='weekend' id='weekend' class="col-2">
+                    <label id='weekendlabel'for='weekend'>Выходные</label>
+                </div>
                 <div class='row'>
-                    <dir id='day1' class='col week'><span>Пн</span></dir>
-                    <dir id='day2' class='col week'><span>Вт</span></dir>
-                    <dir id='day3' class='col week'><span>Ср</span></dir>
-                    <dir id='day4' class='col week'><span>Чт</span></dir>
-                    <dir id='day5' class='col week'><span>Пт</span></dir>
-                    <dir id='day6' class='col week'><span>Сб</span></dir>
-                    <dir id='day7' class='col week'><span>Вс</span></dir>
+                    <div id='day1' class='col week'><span>Пн</span></div>
+                    <div id='day2' class='col week'><span>Вт</span></div>
+                    <div id='day3' class='col week'><span>Ср</span></div>
+                    <div id='day4' class='col week'><span>Чт</span></div>
+                    <div id='day5' class='col week'><span>Пт</span></div>
+                    <div id='day6' class='col week'><span>Сб</span></div>
+                    <div id='day7' class='col week'><span>Вс</span></div>
                 </div>
             </div>
 
-            <div id='description' class='col-12' style='font-size: 20px; margin: 4px'>
+            <div id='description' class='col-12'>
                 <i class='glyphicon glyphicon-bookmark col-2' style='margin-left: 5px; margin-right: -5px ' ></i>
                 <span id='span1'>Описание</span>
             </div>
 
             <hr id='hr'>
 
-            <div id='delete' class='col-12' style='font-size: 20px; margin: 4px'>
+            <div id='delete' class='col-12'>
                 <i class='glyphicon glyphicon-trash col-2' style='margin-left: 5px; margin-right: -5px ' ></i>
                 <span id='span1'>Удалить</span>
             </div>
