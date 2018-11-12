@@ -14,6 +14,7 @@ body {
 
 span {
     font-family: Arial;
+    align-content: center;
 }
 
 hr {
@@ -173,7 +174,7 @@ footer {
     transition: 0.25s;
 }
 
-.clock {    
+.clock1 {    
     z-index: 2;
     height: 380px;
     width: 70%;
@@ -184,13 +185,50 @@ footer {
             transform: scale(1.2);
     background-color: #40454b;
 }
+
+.clock2 {    
+    z-index: 2;
+    height: 210px;
+    width: 70%;
+    left: 15%;
+    top: 25%;
+    position: absolute;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    background-color: #40454b;
+}
   
-.settime {
+.settime1 {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
     color: #bbbaba;
     font-size: 48px;
+}
+
+.settime2 {
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-size: 46px;
+}
+
+.arrows {
+    margin-top: 5px;
+    margin-left: 25px;
+    margin-right: 20px;
+    background-color: #40454b;
+    color: #53afff;
+    border: #40454b;
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    
+}
+
+.arrows:active {
+    background-color: #4f545a;
+    border: #4f545a;
 }
 
 .center {
@@ -204,8 +242,12 @@ footer {
     transform: scale(0.6);
 }
 
-.space {
+.space1 {
     height: 255px;
+}
+
+.space2 {
+    height: 5px;
 }
 
 .ok-cancel {

@@ -1,24 +1,23 @@
 click()
-set()
+// set1()
+set2()
 
 function pad (str, max) {
     str = str.toString();
     return str.length < max ? pad("0" + str, max) : str;
 }
 
-function set() {
-    document.getElementsByClassName('clock')[0].style.display = 'none'
-    document.getElementById('shadow').style.display = 'none'
-
-    document.getElementById('cancel').onclick = function() {
-        document.getElementsByClassName('clock')[0].style.display = 'none'
+function set1() {
+    document.getElementById('cancel1').onclick = function() {
+        document.getElementsByClassName('clock1')[0].style.display = 'none'
         document.getElementById('shadow').style.display = 'none'
     }
 
-    document.getElementById('ok').onclick = function() {
+    document.getElementById('ok1').onclick = function() {
         document.getElementById('spantime1').textContent = document.getElementById('hh').textContent + ':' + document.getElementById('mm').textContent
-        document.getElementsByClassName('clock')[0].style.display = 'none'
+        document.getElementsByClassName('clock1')[0].style.display = 'none'
         document.getElementById('shadow').style.display = 'none'
+        alert('Будильник установлен на ' + document.getElementById('spantime1').textContent)
     }
 
     document.getElementById('hh').style.fontWeight = 'bold'
@@ -71,7 +70,40 @@ function set() {
     }
 }
 
+function set2() {
+    document.getElementById('cancel2').onclick = function() {
+        document.getElementsByClassName('clock2')[0].style.display = 'none'
+        document.getElementById('shadow').style.display = 'none'
+    }
+
+    document.getElementById('ok2').onclick = function() {
+        document.getElementById('spantime1').textContent = document.getElementById('hh2').textContent + ':' + document.getElementById('mm2').textContent
+        document.getElementsByClassName('clock2')[0].style.display = 'none'
+        document.getElementById('shadow').style.display = 'none'
+        alert('Будильник установлен на ' + document.getElementById('spantime1').textContent)
+    }
+
+    document.getElementsByClassName('arrows')[0].onclick = function () {
+        document.getElementById('hh2').textContent = pad((parseInt(document.getElementById('hh2').textContent) + 1) % 24, 2)
+    }
+    document.getElementsByClassName('arrows')[2].onclick = function () {
+        document.getElementById('hh2').textContent = pad((parseInt(24 + document.getElementById('hh2').textContent) - 1) % 24, 2)
+    }
+    document.getElementsByClassName('arrows')[1].onclick = function () {
+        document.getElementById('mm2').textContent = pad((parseInt(document.getElementById('mm2').textContent) + 1) % 60, 2)
+    }
+    document.getElementsByClassName('arrows')[3].onclick = function () {
+        document.getElementById('mm2').textContent = pad((parseInt(60 +document.getElementById('mm2').textContent) - 1) % 60, 2)
+    }
+}
+
 function click() {
+    document.getElementsByClassName('clock1')[0].style.display = 'none'
+    document.getElementById('shadow').style.display = 'none'
+
+    document.getElementsByClassName('clock2')[0].style.display = 'none'
+    document.getElementById('shadow').style.display = 'none'
+
     document.getElementById('check').style.display = 'none'
     document.getElementById('mnth').style.display = 'none'
     document.getElementById('description').style.display = 'none'
@@ -103,7 +135,7 @@ function click() {
 
     document.getElementById('1').onclick = function() {
         if(document.getElementById('1').getAttribute('akt') == 'true') {
-            document.getElementsByClassName('clock')[0].style.display = 'block'
+            document.getElementsByClassName('clock2')[0].style.display = 'block'
             document.getElementById('shadow').style.display = 'block'
         }
         else {
