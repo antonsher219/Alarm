@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    background-color: #aaabad;
+    background-color: #bbbaba;
 }
 
 span {
@@ -22,7 +22,7 @@ hr {
     margin-top: 10px !important;
     margin-bottom: 10px !important;
     border: none !important;
-    background-color: #40454b;
+    background-color: #9a9b9c;
     color: red; 
     height: 2px !important;
     width: 80%;
@@ -43,33 +43,17 @@ li {
 }
 
 footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 80px;
-
-}
-
-.circle {
-    position: fixed;
-    left: 167.5px;
-    top: 90%; 
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 40px;
-    color: #fff;
-    line-height: 40px;
-    text-align: center;
-    background: #2287dc
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #ff5151;
 }
 
 .selected {
     border-bottom: 3px solid #3189d4;
 }
-
-
 
 #btn-month, #btn-week {
     color: #fff;
@@ -100,7 +84,7 @@ footer {
 }
 
 .time {
-    margin-left: 20px;
+    margin-left: 25px;
     padding: 0px;
     font-size: 40px;
     color: #53afff;
@@ -108,7 +92,7 @@ footer {
 }
 
 .row.align-items-center {
-    background-color: #60676d;
+    background-color: #555c61;
 }
 
 .nav-item {
@@ -116,8 +100,11 @@ footer {
 }
 
 .checkdays {
-
     margin-bottom: 5px;
+}
+
+#buffer {
+    height: 40px;
 }
 #checkloop {
     transform:scale(1.3);
@@ -129,19 +116,160 @@ footer {
     font-size: 20px;
     margin-top: 5px; 
     margin-bottom: 10px; 
+    margin-left: 5px;
 }
 
 #check, #description {
-    color: #e0e0e0;
+    color: #ececec;
     font-size: 20px;
-    margin: 4px
+    margin: 4px;
 }
 
 #worklabel, #weekendlabel {
-    color: #e0e0e0;
+    color: #ececec;
 }
 
 #mnth {
     margin-top: 5px;
     margin-bottom: 10px;
+}
+/* Clock */
+
+.circle {
+    position: fixed;
+    left: 167.5px;
+    top: 90%; 
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 40px;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+    background-color: #2287dc
+}
+
+.clock {    
+    height: 380px;
+    width: 70%;
+    /* top: 50%; */
+    left: 15%;
+    position: absolute;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    background-color: #40454b;
+}
+  
+.settime {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    color: #bbbaba;
+    font-size: 48px;
+}
+
+.center {
+    top: 55%;
+    left: 50%;
+    position: absolute;
+}
+
+.space {
+    height: 255px;
+}
+
+.ok-cancel {
+    background-color: #40454b;
+    color: #53afff;
+    border: #40454b;
+    font-size: 16px;
+    width: 75px;
+    height: 30px;
+}
+
+.nums {
+    font-size: 22px;
+    color: white;
+    position: absolute;
+    font-weight: 100;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    line-height: 40px;
+}
+.nums:nth-child(0) {
+    top: -90px;
+    left: 0px;
+}
+.nums:nth-child(1) {
+    top: -77.94229px;
+    left: 45px;
+}
+.nums:nth-child(2) {
+    top: -45px;
+    left: 77.94229px;
+}
+.nums:nth-child(3) {
+    top: 0px;
+    left: 90px;
+}
+.nums:nth-child(4) {
+    top: 45px;
+    left: 77.94229px;
+}
+.nums:nth-child(5) {
+    top: 77.94229px;
+    left: 45px;
+}
+.nums:nth-child(6) {
+    top: 90px;
+    left: 0px;
+}
+.nums:nth-child(7) {
+    top: 77.94229px;
+    left: -45px;
+}
+.nums:nth-child(8) {
+    top: 45px;
+    left: -77.94229px;
+}
+.nums:nth-child(9) {
+    top: 0px;
+    left: -90px;
+}
+.nums:nth-child(10) {
+    top: -45px;
+    left: -77.94229px;
+}
+.nums:nth-child(11) {
+    top: -77.94229px;
+    left: -45px;
+}
+.nums:nth-child(12) {
+    top: -90px;
+    left: 0px;
+}
+  
+  .second {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+    -webkit-animation: tictac 60s linear infinite;
+            animation: tictac 60s linear infinite;
+    background: #2287dc;
+    height: 0.375rem;
+    width: 0.375rem;
+    border-radius: 99em;
+}
+  .second:before {
+    content: "";
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    height: 75px;
+    width: 1.95652px;
+    background: #2287dc;
+    -webkit-transform: translate(-50%, -100%);
+            transform: translate(-50%, -100%);
 }

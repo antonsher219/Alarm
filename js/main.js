@@ -1,10 +1,19 @@
 click()
 
+function numbers() {
+    
+}
 
 function click() {
+    document.getElementById('check').style.display = 'none'
+    document.getElementById('mnth').style.display = 'none'
+    document.getElementById('description').style.display = 'none'
+    document.getElementById('hr').style.display = 'none'
+    document.getElementById('delete').style.display = 'none'
+    document.getElementById('1').setAttribute('akt', false)
 
-    document.getElementById('1').onclick = function() {
-        if(this.getAttribute('akt') == 'true')
+    document.getElementById('buffer').onclick = function() {
+        if(document.getElementById('1').getAttribute('akt') == 'true')
         {
             document.getElementById('check').style.display = 'none'
             document.getElementById('mnth').style.display = 'none'
