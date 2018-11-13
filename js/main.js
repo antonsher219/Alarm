@@ -1,108 +1,16 @@
 click()
-// set1()
-set2()
 
-function pad (str, max) {
-    str = str.toString();
-    return str.length < max ? pad("0" + str, max) : str;
+function numbers() {
+    
 }
 
-function set1() {
-    document.getElementById('cancel1').onclick = function() {
-        document.getElementsByClassName('clock1')[0].style.display = 'none'
-        document.getElementById('shadow').style.display = 'none'
-    }
+var lastestClosedDayId = ['day1','day2','day3','day4','day5','day6','day7'];
 
-    document.getElementById('ok1').onclick = function() {
-        document.getElementById('spantime1').textContent = document.getElementById('hh').textContent + ':' + document.getElementById('mm').textContent
-        document.getElementsByClassName('clock1')[0].style.display = 'none'
-        document.getElementById('shadow').style.display = 'none'
-        alert('Будильник установлен на ' + document.getElementById('spantime1').textContent)
-    }
+var weekDay = {'day1':'пн','day2':'вт','day3':'ср','day4':'чт','day5':'пт','day6':'сб','day7':'вс'}
 
-    document.getElementById('hh').style.fontWeight = 'bold'
-    document.getElementById('hh').style.color = 'white'
-    document.getElementsByClassName('nums')[(document.getElementById('hh').textContent - 1) % 23].style.background = '#2287dc'
-
-    document.getElementById('hh').onclick = function() {
-        document.getElementById('add').style.display = 'block'
-        document.getElementById('hh').style.fontWeight = 'bold'
-        document.getElementById('hh').style.color = 'white'
-        document.getElementById('mm').style.fontWeight = 'normal'
-        document.getElementById('mm').style.color = '#bbbaba'
-        for (var i = 0; i < document.getElementsByClassName('nums').length; i++) {
-            document.getElementsByClassName('nums')[i].style.background = '#555c61'
-            document.getElementsByClassName('nums')[i].textContent = i + 1
-        }
-        document.getElementsByClassName('nums')[(document.getElementById('hh').textContent - 1) % 23].style.background = '#2287dc'
-        document.getElementsByClassName('second')[0].style.transform = 'rotateZ(' + parseInt((document.getElementById('hh').textContent) % 24) * 30 + 'deg)'
-    }
-
-    document.getElementById('mm').onclick = function() {
-        document.getElementById('add').style.display = 'none'
-        document.getElementById('mm').style.fontWeight = 'bold'
-        document.getElementById('mm').style.color = 'white'
-        document.getElementById('hh').style.fontWeight = 'normal'
-        document.getElementById('hh').style.color = '#bbbaba'
-        for (var i = 0; i < document.getElementsByClassName('nums').length; i++) {
-            document.getElementsByClassName('nums')[i].style.background = '#555c61'
-            document.getElementsByClassName('nums')[i].textContent = (i + 1) * 5 % 60
-        }
-        document.getElementsByClassName('nums')[((document.getElementById('mm').textContent / 5) + 11) % 12].style.background = '#2287dc'
-        document.getElementsByClassName('second')[0].style.transform = 'rotateZ(' + parseInt((document.getElementById('mm').textContent) % 60) * 6 + 'deg)'
-    }
-
-    for (var i = 0; i < document.getElementsByClassName('nums').length; i++) {
-        document.getElementsByClassName('nums')[i].onclick = function() {
-            for (var i = 0; i < document.getElementsByClassName('nums').length; i++) {
-                document.getElementsByClassName('nums')[i].style.background = '#555c61'
-            }
-            this.style.background = '#2287dc'
-            if (document.getElementById('add').style.display == 'none') {
-                document.getElementsByClassName('second')[0].style.transform = 'rotateZ(' + parseInt(this.textContent) * 6 + 'deg)'
-                document.getElementById('mm').textContent = pad(parseInt(this.textContent), 2)  
-            }
-            else {
-                document.getElementsByClassName('second')[0].style.transform = 'rotateZ(' + parseInt(this.textContent) * 30 + 'deg)'
-                document.getElementById('hh').textContent = pad(parseInt(this.textContent), 2) 
-            }  
-        }
-    }
-}
-
-function set2() {
-    document.getElementById('cancel2').onclick = function() {
-        document.getElementsByClassName('clock2')[0].style.display = 'none'
-        document.getElementById('shadow').style.display = 'none'
-    }
-
-    document.getElementById('ok2').onclick = function() {
-        document.getElementById('spantime1').textContent = document.getElementById('hh2').textContent + ':' + document.getElementById('mm2').textContent
-        document.getElementsByClassName('clock2')[0].style.display = 'none'
-        document.getElementById('shadow').style.display = 'none'
-        alert('Будильник установлен на ' + document.getElementById('spantime1').textContent)
-    }
-
-    document.getElementsByClassName('arrows')[0].onclick = function () {
-        document.getElementById('hh2').textContent = pad((parseInt(document.getElementById('hh2').textContent) + 1) % 24, 2)
-    }
-    document.getElementsByClassName('arrows')[2].onclick = function () {
-        document.getElementById('hh2').textContent = pad((parseInt(24 + document.getElementById('hh2').textContent) - 1) % 24, 2)
-    }
-    document.getElementsByClassName('arrows')[1].onclick = function () {
-        document.getElementById('mm2').textContent = pad((parseInt(document.getElementById('mm2').textContent) + 1) % 60, 2)
-    }
-    document.getElementsByClassName('arrows')[3].onclick = function () {
-        document.getElementById('mm2').textContent = pad((parseInt(60 +document.getElementById('mm2').textContent) - 1) % 60, 2)
-    }
-}
-
-function click() {
-    document.getElementsByClassName('clock1')[0].style.display = 'none'
-    document.getElementById('shadow').style.display = 'none'
-
-    document.getElementsByClassName('clock2')[0].style.display = 'none'
-    document.getElementById('shadow').style.display = 'none'
+function click() 
+{
+    setDay()
 
     document.getElementById('check').style.display = 'none'
     document.getElementById('mnth').style.display = 'none'
@@ -111,7 +19,8 @@ function click() {
     document.getElementById('delete').style.display = 'none'
     document.getElementById('1').setAttribute('akt', false)
 
-    document.getElementById('buffer').onclick = function() {
+    document.getElementById('buffer').onclick = function() 
+    {
         if(document.getElementById('1').getAttribute('akt') == 'true')
         {
             document.getElementById('check').style.display = 'none'
@@ -133,36 +42,43 @@ function click() {
         }
     }
 
-    document.getElementById('1').onclick = function() {
-        if(document.getElementById('1').getAttribute('akt') == 'true') {
-            document.getElementsByClassName('clock2')[0].style.display = 'block'
-            document.getElementById('shadow').style.display = 'block'
-        }
-        else {
-            document.getElementById('check').style.display = 'block'
-            document.getElementById('description').style.display = 'block'
-            document.getElementById('hr').style.display = 'block'
-            document.getElementById('delete').style.display = 'block'
-            document.getElementById('1').setAttribute('akt', true)
-            if (document.getElementById('checkloop').checked)
-                document.getElementById('mnth').style.display = 'block'
-        }
-    }
 
-    document.getElementById('check').onclick = function() {
+    document.getElementById('check').onclick = function() 
+    {
         if(document.getElementById('mnth').style.display == 'none')
         {
             this.setAttribute('checked', true)
+            document.getElementById('work').setAttribute('checked', true)
+            document.getElementById('weekend').setAttribute('checked', true)
             document.getElementById('mnth').style.display = 'block'
+            if(lastestClosedDayId.length < 7)
+            {
+                for(var i in lastestClosedDayId)
+                {
+                    document.getElementById(lastestClosedDayId[i]).style.background = 'white'
+                    document.getElementById(lastestClosedDayId[i]).style.color = '#4d5358'
+                }
+
+                if(lastestClosedDayId.length == 2)
+                {
+                    document.getElementById('weekend').checked = true;
+                }
+                else if(lastestClosedDayId.length == 5)
+                document.getElementById('work').checked = true;
+            }
         }
         else
         {
             document.getElementById('mnth').style.display = 'none'
-            this.checked = false
+            this.setAttribute('checked', false)
+            document.getElementById('work').setAttribute('checked', false)
+            document.getElementById('weekend').setAttribute('checked', false)
         }
+        changeDays()
     }
 
-    document.getElementById('checklabel').onclick = function() {
+    document.getElementById('checklabel').onclick = function() 
+    {
         if(document.getElementById('mnth').style.display == 'none')
         {
             document.getElementById('mnth').style.display = 'block'
@@ -174,7 +90,10 @@ function click() {
     }
 
     for(i = 1; i < 8; i++){
-        document.getElementById('day' + i).onclick = function() {
+
+        document.getElementById('day' + i).style.background = 'white'
+        document.getElementById('day' + i).onclick = function() 
+        {
             if(this.style.color == 'white')
             {
                 this.style.color = '#4d5358';
@@ -183,29 +102,57 @@ function click() {
             else
             {
                 this.style.color = 'white';
-                this.style.background = '#85888b';
+                this.style.background = '#4d5358';
             }
 
             document.getElementById('work').checked = false;
             document.getElementById('weekend').checked = false;
 
-            if (document.getElementById('day1').style.color == 'white' &&
-                document.getElementById('day2').style.color == 'white' &&
-                document.getElementById('day3').style.color == 'white' &&
-                document.getElementById('day4').style.color == 'white' &&
-                document.getElementById('day5').style.color == 'white'){
+            if (document.getElementById('day1').style.background == 'white' &&
+                document.getElementById('day2').style.background == 'white' &&
+                document.getElementById('day3').style.background == 'white' &&
+                document.getElementById('day4').style.background == 'white' &&
+                document.getElementById('day5').style.background == 'white')
+            {
                 document.getElementById('work').checked = true;
             }
 
-            if (document.getElementById('day6').style.color == 'white' &&
-                document.getElementById('day7').style.color == 'white') {
+            if (document.getElementById('day6').style.background == 'white' &&
+                document.getElementById('day7').style.background == 'white') 
+            {
                 document.getElementById('weekend').checked = true;
             }
-        }
+
+            for(var i = 1; i < 8; i++)
+            {
+                if(document.getElementById('day' + i).style.background == 'white')
+                {
+                    break
+                }
+            }
+            if(i==8)
+            {
+                document.getElementById('checkloop').checked = false
+                document.getElementById('mnth').style.display = 'none'
+                lastestClosedDayId = [this.id]
+            }
+
+
+            var daysStr = ''
+            for(var i = 1; i < 8; i++)
+            {
+                if(document.getElementById('day' + i).style.background == 'white')
+                {
+                    daysStr += weekDay['day' + i] + ' '
+                }
+            }
+            document.getElementById('days').textContent = daysStr
+            }
     }
 
 
-    document.getElementById('checkbox1').onclick = function() {
+    document.getElementById('checkbox1').onclick = function() 
+    {
         if(document.getElementById('checkbox1').checked == false)
         {
             document.getElementById('spantime1').style.color = 'rgba(255, 255, 255, 0.50)'
@@ -216,7 +163,8 @@ function click() {
             document.getElementById('delete').style.display = 'none'
             document.getElementById('1').setAttribute('akt', false)
         }
-        else {
+        else 
+        {
             document.getElementById('spantime1').style.color = '#419ff1'
             document.getElementById('check').style.display = 'block'
             document.getElementById('description').style.display = 'block'
@@ -225,36 +173,154 @@ function click() {
             document.getElementById('1').setAttribute('akt', true)
             if (document.getElementById('checkloop').checked)
                 document.getElementById('mnth').style.display = 'block'
-        }  
+            document.getElementById('work').checked = true
+            document.getElementById('weekend').checked = true
+        }
+
     }
 
-    document.getElementById('work').onclick = function() {
-        if(document.getElementById('work').checked == false) {
-            for(i = 1; i < 6; i++){
+    document.getElementById('work').onclick = function() 
+    {
+        if(document.getElementById('work').checked == false) 
+        {
+            for(i = 1; i < 6; i++)
+            {
+                document.getElementById('day' + i).style.color = 'white';
+                document.getElementById('day' + i).style.background = '#4d5358';
+            }
+        }
+        else 
+        {
+            for(i = 1; i < 6; i++)
+            {
                 document.getElementById('day' + i).style.color = '#4d5358';
                 document.getElementById('day' + i).style.background = 'white';
             }
         }
-        else {
-            for(i = 1; i < 6; i++){
-                document.getElementById('day' + i).style.color = 'white';
-                document.getElementById('day' + i).style.background = '#85888b';
+
+
+            for(var i = 1; i < 8; i++)
+            {
+                if(document.getElementById('day' + i).style.background == 'white')
+                {
+                    break
+                }
             }
-        }
+            if(i==8)
+            {
+                document.getElementById('checkloop').checked = false
+                document.getElementById('mnth').style.display = 'none'
+                lastestClosedDayId = ['day1','day2','day3','day4','day5']
+            }
+
+
+changeDays()
+
     }
 
-    document.getElementById('weekend').onclick = function() {
-        if(document.getElementById('weekend').checked == false) {
-            for(i = 6; i < 8; i++){
+    document.getElementById('weekend').onclick = function() 
+    {
+        if(document.getElementById('weekend').checked == false) 
+        {
+            for(i = 6; i < 8; i++)
+            {
+                document.getElementById('day' + i).style.color = 'white';
+                document.getElementById('day' + i).style.background = '#4d5358';
+            }
+        }
+        else 
+        {
+            for(i = 6; i < 8; i++)
+            {
                 document.getElementById('day' + i).style.color = '#4d5358';
                 document.getElementById('day' + i).style.background = 'white';
             }
         }
-        else {
-            for(i = 6; i < 8; i++){
-                document.getElementById('day' + i).style.color = 'white';
-                document.getElementById('day' + i).style.background = '#85888b';
+
+            for(var i = 1; i < 8; i++)
+            {
+                if(document.getElementById('day' + i).style.background == 'white')
+                {
+                    break
+                }
+            }
+            if(i==8)
+            {
+                document.getElementById('checkloop').checked = false
+                document.getElementById('mnth').style.display = 'none'
+                lastestClosedDayId = ['day6','day7']
+            }
+
+
+changeDays()
+
+
+    }
+
+    document.getElementById('spantime1').onclick = function() 
+    {
+        if(document.getElementById('select-time-circle').style.display == 'none'){
+            document.getElementById('select-time-circle').style.display = 'block'
+            document.getElementById('input-time').value = document.getElementById('spantime1').textContent.trim()
+            document.getElementById('bg').style.display = 'block'
+        }
+        else
+        {
+            document.getElementById('select-time-circle').style.display = 'none'
+            document.getElementById('bg').style.display = 'none'
+        }
+
+    }
+
+    document.getElementById('cancel').onclick = function() 
+    {
+        document.getElementById('select-time-circle').style.display = 'none'
+        document.getElementById('bg').style.display = 'none'
+    }
+
+    document.getElementById('ok').onclick = function() 
+    {
+        document.getElementById('spantime1').textContent = document.getElementById('input-time').value
+        document.getElementById('select-time-circle').style.display = 'none'
+        document.getElementById('bg').style.display = 'none'
+    }
+
+    document.getElementById('bg').onclick = function()
+    {
+        this.style.display = 'none'
+        document.getElementById('select-time-circle').style.display = 'none'        
+    }
+
+
+}
+
+function changeDays()
+{
+        var daysStr = ''
+        for(var i = 1; i < 8; i++)
+        {
+            if(document.getElementById('day' + i).style.background == 'white')
+            {
+                daysStr += weekDay['day' + i] + ' '
             }
         }
+        if(document.getElementById('mnth').style.display == 'none')
+        {
+           setDay()
+           return 
+        } 
+        document.getElementById('days').textContent = daysStr
+}
+
+function setDay()
+{
+    if(parseInt(document.getElementById('spantime1').textContent.trim().substring(0,2)) >= new Date().getHours()
+    && parseInt(document.getElementById('spantime1').textContent.trim().substring(3)) >= new Date().getMinutes())
+    {
+        document.getElementById('days').textContent = 'Сегодня'
+    }
+    else
+    {
+        document.getElementById('days').textContent = 'Завтра'   
     }
 }

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no'>
+    <link rel='shortcut icon' type='text/css' href='css/alarm.png'>
+
+    <link rel='stylesheet' href='css/style.css'>
+    <link rel='stylesheet' href='css/checkBox.css'>
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <title>Будильник</title>
+
+</head>
+<body style="height: 667px">
+
+    <header>
+        
+        <nav class='navbar navbar-expand-md'>
+
+            <div class='container' style='height: 55px'>
+                <div class='col-3'>
+                    <ul class='navbar-nav'>
+                        <li class='nav-item selected' style='height: 55px; width: 85px; color: #53afff'>                        
+                            <i class='glyphicon glyphicon-bell text-center' >
+                                <span>Будильник</span>
+                            </i>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class='col-3'>
+                    <ul class='navbar-nav'>
+                        <li class='nav-item' style='height: 55px; color: rgba(255, 255, 255, 0.76)'>                        
+                            <i class='glyphicon glyphicon-time nav-item text-center' >
+                                <span>Часы</span>
+                            </i>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class='col-3'>
+                    <ul class='navbar-nav'>
+                        <li class='nav-item' style='height: 55px; color: rgba(255, 255, 255, 0.76)'>                        
+                            <i class='glyphicon glyphicon-hourglass nav-item text-center' >
+                                <span>Таймер</span>
+                            </i>
+                        </li>
+                    </ul>
+                </div>
+                        
+            </div>
+          </nav>
+
+    </header>
+    <main>
+
+        <div class='bg' id='bg'></div>
+        <div id='alarm1' class='row align-items-center'>
+            <div id='1' class='col-5' akt=true>
+                <span id='spantime1' class='time' > 00:54</span>
+            </div>
+            <div class='col-3' id='buffer'></div>
+            <div class='col-4'>
+                <div id='toggles'>
+                    <input type='checkbox' name='checkbox1' id='checkbox1' class='ios-toggle' />
+                    <label for='checkbox1' class='checkbox-label' data-off='off' data-on='on'></label>
+                </div>
+            </div>
+
+                <span id='days' class='col-7' 
+                style="color: white; font-size: 15px; height: 25px; padding-left: 10% "></span>
+
+
+
+
+            <div id='check' class='col-12'> 
+                <input type='checkbox' name='checkloop' id='checkloop' class='col-2'>
+                <label id='checklabel'for='checkloop'>Повтор</label>
+            </div>
+
+            <div id='mnth' class='container w-75' style='display: none;'>
+                <div class='row checkdays'>
+                    <input type="checkbox" name='work' id='work' class="col-2">
+                    <label id='worklabel'for='work'>Рабочие дни</label>
+                    <input type="checkbox" name='weekend' id='weekend' class="col-2">
+                    <label id='weekendlabel'for='weekend'>Выходные</label>
+                </div>
+                <div class='row'>
+                    <div id='day1' class='col week'><span>Пн</span></div>
+                    <div id='day2' class='col week'><span>Вт</span></div>
+                    <div id='day3' class='col week'><span>Ср</span></div>
+                    <div id='day4' class='col week'><span>Чт</span></div>
+                    <div id='day5' class='col week'><span>Пт</span></div>
+                    <div id='day6' class='col week'><span>Сб</span></div>
+                    <div id='day7' class='col week'><span>Вс</span></div>
+                </div>
+            </div>
+
+            <div id='description' class='col-12'>
+                <i class='glyphicon glyphicon-bookmark col-2' style='margin-left: 5px; margin-right: -5px '></i>
+                <span id='span1'>Описание</span>
+            </div>
+
+            <hr id='hr'>
+
+            <div id='delete' class='col-12'>
+                <i class='glyphicon glyphicon-trash col-2' style='margin-left: 5px; margin-right: -5px ' ></i>
+                <span id='span1'>Удалить</span>
+            </div>
+
+        </div>
+
+        <div class="clock" id="select-time-circle" style="display: none;">
+            <div class="row">
+                <div class="settime">
+                    <span>Время</span>
+                </div>
+            </div>
+            <br>
+            <div class="row-2">
+                <span class="row" style="margin-left: 10%; font-size: 20px; color: white;">Введите время</span>
+                <input type="range" id='input-time-hour' min="0" max="23" step="1" value="" list="tickmarks" class="input-lg col-6" style="margin-left: 10%; width: 40%;">
+                <input type="range" id='input-time-minute' min="0" max="59" step="1" value="" list="tickmarks" class="input-lg col-6" style="margin-left: 10%; width: 40%;">
+            </div>
+            <div class="col-12">
+                <span style="margin-left: 4%; font-size: 15px; color: #fff">Мин.</span>
+            </div>
+            <br>    
+            <div class="row">
+                <div class="col-5"></div>
+                <div class="col-2.5">
+                    <button class="ok-cancel" id='cancel'>Отмена</button>
+                </div>
+                <div class="col-2.5">
+                    <button class="ok-cancel" id='ok'>ОК</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+
+
+
+    <footer class='circle'>+</footer>
+
+    <script src='js/main.js'></script>
+
+    <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo'
+        crossorigin='anonymous'></script>
+
+</body>
+</html>
